@@ -1,7 +1,12 @@
 .snap-container {
-    scroll-snap-type: y mandatory;
+  overflow: scroll;
+  height: 100vh;
+  scroll-snap-points-y: repeat(100vh);
+  scroll-snap-type: y mandatory;
 }
 
-.snap-container .snap-item {
-    scroll-snap-align: start;
+.snap-item {
+  height: 100vh;
+  scroll-snap-align: start;
+  position: relative;
 }
