@@ -1,4 +1,4 @@
-.snap-container {
+/* .snap-container {
   overflow: scroll;
   height: 100vh;
   scroll-snap-points-y: repeat(100vh);
@@ -9,4 +9,4 @@
   height: 100vh;
   scroll-snap-align: start;
   position: relative;
-}
+} */
