@@ -31,8 +31,6 @@ document.addEventListener("DOMContentLoaded", () => {
             item.remove();
         });
 
-        console.log(items);
-
         items.forEach((item) => {
             const listItemWrapper = document.createElement("div");
             listItemWrapper.classList.add("list-item");
@@ -43,16 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const listItemPrice = document.createElement("span");
             listItemPrice.classList.add("list-item-price");
-            listItemPrice.innerHTML = `£${item.price}`;
+            listItemPrice.innerHTML = `${item.price}`;
 
             listItemWrapper.appendChild(listItemName);
             listItemWrapper.appendChild(listItemPrice);
 
-            totalPrice = totalPrice + item.price;
+            totalPrice = totalPrice + item.price.split("£")[1];
 
             const mainWrapper = document.querySelector(".line-items");
             mainWrapper.appendChild(listItemWrapper);
-            console.log(listItemWrapper);
         });
 
         finalPrice.innerHTML = `£${totalPrice}`;
