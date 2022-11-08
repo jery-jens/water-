@@ -177,8 +177,10 @@ document.addEventListener("DOMContentLoaded", () => {
                 console.log(nameRefill.innerHTML)
             } else {
                 for (let i = 0; i < arrayOfItems.length; i++) {
-                    arrayOfItems[i].amount = amount;
-                    arrayOfItems[i].price = price;  
+                    if (arrayOfItems[i].name === nameRefill.innerHTML) {
+                        arrayOfItems[i].amount = amount;
+                        arrayOfItems[i].price = price;
+                    };
                 };
             };
 
