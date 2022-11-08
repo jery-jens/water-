@@ -89,10 +89,12 @@ document.addEventListener("DOMContentLoaded", () => {
      */
 
     // Elements
-    const minusMain = document.getElementById("minus-main");
-    const plusMain = document.getElementById("plus-main");
-    const amountMain = document.getElementById("amount-main");
+    const minusMain = document.getElementById("minus-main") ?? null;
+    const plusMain = document.getElementById("plus-main") ?? null;
+    const amountMain = document.getElementById("amount-main") ?? null;
     const priceMain = 89;
+
+    console.log(minusMain, plusMain, amountMain);
 
     if (minusMain || plusMain || amountMain) {
         minusMain.addEventListener("click", () => {
