@@ -31,6 +31,8 @@ document.addEventListener("DOMContentLoaded", () => {
             item.remove();
         });
 
+        console.log(items);
+
         items.forEach((item) => {
             const listItemWrapper = document.createElement("div");
             listItemWrapper.classList.add("list-item");
@@ -112,6 +114,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
         };
+
+        updateList(arrayOfItems);
     });
 
     plusMain.addEventListener("click", () => {
@@ -134,6 +138,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
         };
+
+        updateList(arrayOfItems);
     });
 
     /**
@@ -166,6 +172,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 };
             };
+
+            updateList(arrayOfItems);
         });
 
         plusRefill.addEventListener("click", () => {
@@ -186,6 +194,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 };
             };
+
+            updateList(arrayOfItems);
         });
     });
 });
