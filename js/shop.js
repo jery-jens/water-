@@ -154,8 +154,10 @@ document.addEventListener("DOMContentLoaded", () => {
                         arrayOfItems.splice(i, 1);
                     };
                 } else {
-                    arrayOfItems[i].amount = amount;
-                    arrayOfItems[i].price = price;
+                    if (arrayOfItems[i].name === nameRefill.innerHTML) {
+                        arrayOfItems[i].amount = amount;
+                        arrayOfItems[i].price = price;
+                    };
                 };
             };
 
