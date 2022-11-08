@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let arrayOfItems = [];
     let totalPrice = 0;
 
-    const updateList = (items) => {
+    const updateList = (items, price) => {
         document.querySelectorAll(".list-item").forEach((item) => {
             item.remove();
         });
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mainWrapper.appendChild(listItemWrapper);
         });
 
-        finalPrice.innerHTML = `£${totalPrice}`;
+        finalPrice.innerHTML = `£${price}`;
     };
 
     /**
@@ -112,8 +112,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 };
             };
+
+            let finalTotalPrice = 0;
+
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+            };
     
-            updateList(arrayOfItems);
+            updateList(arrayOfItems, finalTotalPrice);
         });
     
         plusMain.addEventListener("click", () => {
@@ -135,8 +141,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 };
             };
+
+            let finalTotalPrice = 0;
+
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+            };
     
-            updateList(arrayOfItems);
+            updateList(arrayOfItems, finalTotalPrice);
         });
     };
 
@@ -172,7 +184,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
 
-            updateList(arrayOfItems);
+            let finalTotalPrice = 0;
+
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+            };
+
+            updateList(arrayOfItems, finalTotalPrice);
         });
 
         plusRefill.addEventListener("click", () => {
@@ -194,15 +212,13 @@ document.addEventListener("DOMContentLoaded", () => {
                 };
             };
 
-            let finalPrice = 0;
+            let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
             };
 
-            console.log(finalPrice);
-
-            updateList(arrayOfItems);
+            updateList(arrayOfItems, finalTotalPrice);
         });
     });
 });
