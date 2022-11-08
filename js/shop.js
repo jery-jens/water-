@@ -106,8 +106,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     arrayOfItems.splice(i, 1);
                 };
             } else {
-                arrayOfItems[i].amount = amount;
-                arrayOfItems[i].price = price;
+                if (arrayOfItems[i].name === "Discovery Package") {
+                    arrayOfItems[i].amount = amount;
+                    arrayOfItems[i].price = price;
+                };
             };
         };
     });
@@ -124,8 +126,12 @@ document.addEventListener("DOMContentLoaded", () => {
                     price: price
                 });
             } else {
-                arrayOfItems[i].amount = amount;
-                arrayOfItems[i].price = price;  
+                for (let i = 0; i < arrayOfItems.length; i++) {
+                    if (arrayOfItems[i].name === "Discovery Package") {
+                        arrayOfItems[i].amount = amount;
+                        arrayOfItems[i].price = price;
+                    };
+                };
             };
         };
     });
