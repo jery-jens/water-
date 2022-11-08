@@ -180,7 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
         plusRefill.addEventListener("click", () => {
             const amount = plusAmount(minusRefill, amountRefill);
             const price = "£" + Number(priceRefill * amount).toFixed(2);
-            totalPrice = Number(Number(totalPrice) + Number(priceRefill * amount)).toFixed(2);
 
             if (amount === 1) {
                 arrayOfItems.push({
@@ -196,6 +195,14 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 };
             };
+
+            let finalPrice = 0;
+
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                finalPrice = finalPrice + Number(priceRefill * amount).toFixed(2);
+            };
+
+            console.log(finalPrice);
 
             updateList(arrayOfItems);
         });
