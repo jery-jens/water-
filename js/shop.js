@@ -61,6 +61,7 @@ document.addEventListener("DOMContentLoaded", () => {
      */
 
     const minusAmount = (minus, amount) => {
+        console.log(amount);
         if (amount !== 0) {
             const updatedAmount = Number(amount.innerHTML) - 1;
             amount.innerHTML = updatedAmount;
