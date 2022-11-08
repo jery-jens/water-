@@ -47,6 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
             listItemWrapper.appendChild(listItemName);
             listItemWrapper.appendChild(listItemPrice);
 
+            console.log(item.price, totalPrice)
+
+            totalPrice = Number(Number(totalPrice) + Number(item.price.split("£")[1])).toFixed(2);
+            console.log(totalPrice);
+
             const mainWrapper = document.querySelector(".line-items");
             mainWrapper.appendChild(listItemWrapper);
         });
@@ -118,19 +123,17 @@ document.addEventListener("DOMContentLoaded", () => {
         const amount = plusAmount(minusMain, amountMain);
         const price = "£" + Number(priceMain * amount).toFixed(2);
 
-        for (let i = 0; i < arrayOfItems.length; i++) {
-            if (amount === 1) {
-                arrayOfItems.push({
-                    name: "Discovery Package",
-                    amount: amount,
-                    price: price
-                });
-            } else {
-                for (let i = 0; i < arrayOfItems.length; i++) {
-                    if (arrayOfItems[i].name === "Discovery Package") {
-                        arrayOfItems[i].amount = amount;
-                        arrayOfItems[i].price = price;
-                    };
+        if (amount === 1) {
+            arrayOfItems.push({
+                name: "Discovery Package",
+                amount: amount,
+                price: price
+            });
+        } else {
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                if (arrayOfItems[i].name === "Discovery Package") {
+                    arrayOfItems[i].amount = amount;
+                    arrayOfItems[i].price = price;
                 };
             };
         };
