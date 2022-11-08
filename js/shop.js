@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
         thumbnail.addEventListener("click", () => {
             console.log(elements.mainImage.src, thumbnail.src);
             elements.mainImage.src = thumbnail.src;
+            elements.mainImage.srcset = thumbnail.srcset;
             console.log(elements.mainImage.src, thumbnail.src);
         });
     });
