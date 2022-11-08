@@ -197,10 +197,8 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalPrice = finalPrice + Number(priceRefill * amount).toFixed(2);
+                console.log(arrayOfItems[i].price)
             };
-
-            console.log(finalPrice);
 
             updateList(arrayOfItems);
         });
