@@ -47,13 +47,11 @@ document.addEventListener("DOMContentLoaded", () => {
             listItemWrapper.appendChild(listItemName);
             listItemWrapper.appendChild(listItemPrice);
 
-            console.log(item.price, totalPrice)
-
-            totalPrice = Number(Number(totalPrice) + Number(item.price.split("£")[1])).toFixed(2);
-            console.log(totalPrice);
-
             const mainWrapper = document.querySelector(".line-items");
             mainWrapper.appendChild(listItemWrapper);
+            console.log("old", totalPrice);
+            totalPrice = Number(totalPrice) + Number(item.price.split("£")[1]);
+            console.log("new", totalPrice); 
         });
 
         finalPrice.innerHTML = `£${totalPrice}`;
