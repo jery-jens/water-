@@ -12,7 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.thumbnails.forEach((thumbnail) => {
         console.log(thumbnail)
         thumbnail.addEventListener("click", () => {
+            console.log(elements.mainImage.src, thumbnail.src);
             elements.mainImage.src = thumbnail.src;
+            console.log(elements.mainImage.src, thumbnail.src);
         });
     });
 
