@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mainWrapper.appendChild(listItemWrapper);
         });
 
-        finalPrice.innerHTML = `£${price}`;
+        finalPrice.innerHTML = `£${price.toFixed(2)}`;
     };
 
     /**
