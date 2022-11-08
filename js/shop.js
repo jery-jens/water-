@@ -10,12 +10,9 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
     elements.thumbnails.forEach((thumbnail) => {
-        console.log(thumbnail)
         thumbnail.addEventListener("click", () => {
-            console.log(elements.mainImage.src, thumbnail.src);
             elements.mainImage.src = thumbnail.src;
             elements.mainImage.srcset = thumbnail.srcset;
-            console.log(elements.mainImage.src, thumbnail.src);
         });
     });
 
@@ -49,6 +46,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             listItemWrapper.appendChild(listItemName);
             listItemWrapper.appendChild(listItemPrice);
+
+            console.log(item.price, totalPrice)
 
             totalPrice = Number(Number(totalPrice) + Number(item.price.split("£")[1])).toFixed(2);
             console.log(totalPrice);
