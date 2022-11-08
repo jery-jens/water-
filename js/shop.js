@@ -114,7 +114,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         };
 
-        // updateList(arrayOfItems);
+        updateList(arrayOfItems);
     });
 
     plusMain.addEventListener("click", () => {
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
             };
         };
 
-        // updateList(arrayOfItems);
+        updateList(arrayOfItems);
     });
 
     /**
