@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     };
     
     elements.thumbnails.forEach((thumbnail) => {
+        console.log(thumbnail)
         thumbnail.addEventListener("click", () => {
             elements.mainImage.src = thumbnail.src;
         });
