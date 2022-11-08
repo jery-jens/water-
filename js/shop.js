@@ -94,8 +94,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const amountMain = document.getElementById("amount-main") ?? null;
     const priceMain = 89;
 
-    console.log(minusMain, plusMain, amountMain);
-
     if (minusMain || plusMain || amountMain) {
         minusMain.addEventListener("click", () => {
             const amount = minusAmount(minusMain, amountMain);
