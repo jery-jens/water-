@@ -135,9 +135,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     refillBoxes.forEach((refill) => {
         const nameRefill = refill.querySelector(".name-refill");
-        const minusRefill = refill.querySelector("minus-refill");
-        const plusRefill = refill.querySelector("plus-refill");
-        const amountRefill = refill.querySelector("amount-refill");
+        const minusRefill = refill.querySelector(".minus-refill");
+        const plusRefill = refill.querySelector(".plus-refill");
+        const amountRefill = refill.querySelector(".amount-refill");
         const priceRefill = 5;
 
         minusRefill.addEventListener("click", () => {
@@ -154,6 +154,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     arrayOfItems[i].price = price;
                 };
             };
+
+            console.log(arrayOfItems);
         });
 
         plusRefill.addEventListener("click", () => {
@@ -172,6 +174,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     arrayOfItems[i].price = price;  
                 };
             };
+
+            console.log(arrayOfItems);
         });
     });
 });
