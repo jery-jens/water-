@@ -197,7 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                console.log(arrayOfItems[i].price)
+                console.log(Number(arrayOfItems[i].price.split("£")));
             };
 
             updateList(arrayOfItems);
