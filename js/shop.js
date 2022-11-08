@@ -97,47 +97,49 @@ document.addEventListener("DOMContentLoaded", () => {
     const amountMain = document.getElementById("amount-main");
     const priceMain = 89;
 
-    minusMain.addEventListener("click", () => {
-        const amount = minusAmount(minusMain, amountMain);
-        const price = "£" + Number(priceMain * amount).toFixed(2);
-
-        for (let i = 0; i < arrayOfItems.length; i++) {
-            if (amount === 0) {
-                if (arrayOfItems[i].name === "Discovery Package") {
-                    arrayOfItems.splice(i, 1);
-                };
-            } else {
-                if (arrayOfItems[i].name === "Discovery Package") {
-                    arrayOfItems[i].amount = amount;
-                    arrayOfItems[i].price = price;
-                };
-            };
-        };
-
-        updateList(arrayOfItems);
-    });
-
-    plusMain.addEventListener("click", () => {
-        const amount = plusAmount(minusMain, amountMain);
-        const price = "£" + Number(priceMain * amount).toFixed(2);
-
-        if (amount === 1) {
-            arrayOfItems.push({
-                name: "Discovery Package",
-                amount: amount,
-                price: price
-            });
-        } else {
+    if (minusMain || plusMain || amountMain) {
+        minusMain.addEventListener("click", () => {
+            const amount = minusAmount(minusMain, amountMain);
+            const price = "£" + Number(priceMain * amount).toFixed(2);
+    
             for (let i = 0; i < arrayOfItems.length; i++) {
-                if (arrayOfItems[i].name === "Discovery Package") {
-                    arrayOfItems[i].amount = amount;
-                    arrayOfItems[i].price = price;
+                if (amount === 0) {
+                    if (arrayOfItems[i].name === "Discovery Package") {
+                        arrayOfItems.splice(i, 1);
+                    };
+                } else {
+                    if (arrayOfItems[i].name === "Discovery Package") {
+                        arrayOfItems[i].amount = amount;
+                        arrayOfItems[i].price = price;
+                    };
                 };
             };
-        };
-
-        updateList(arrayOfItems);
-    });
+    
+            updateList(arrayOfItems);
+        });
+    
+        plusMain.addEventListener("click", () => {
+            const amount = plusAmount(minusMain, amountMain);
+            const price = "£" + Number(priceMain * amount).toFixed(2);
+    
+            if (amount === 1) {
+                arrayOfItems.push({
+                    name: "Discovery Package",
+                    amount: amount,
+                    price: price
+                });
+            } else {
+                for (let i = 0; i < arrayOfItems.length; i++) {
+                    if (arrayOfItems[i].name === "Discovery Package") {
+                        arrayOfItems[i].amount = amount;
+                        arrayOfItems[i].price = price;
+                    };
+                };
+            };
+    
+            updateList(arrayOfItems);
+        });
+    };
 
     /**
      * Refill - amount selector
