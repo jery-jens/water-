@@ -49,9 +49,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const mainWrapper = document.querySelector(".line-items");
             mainWrapper.appendChild(listItemWrapper);
-            console.log("old", totalPrice);
-            totalPrice = Number(totalPrice) + Number(item.price.split("£")[1]);
-            console.log("new", totalPrice); 
         });
 
         finalPrice.innerHTML = `£${totalPrice}`;
@@ -101,6 +98,7 @@ document.addEventListener("DOMContentLoaded", () => {
         minusMain.addEventListener("click", () => {
             const amount = minusAmount(minusMain, amountMain);
             const price = "£" + Number(priceMain * amount).toFixed(2);
+            totalPrice = Number(totalPrice) - Number(priceMain * amount).toFixed(2);
     
             for (let i = 0; i < arrayOfItems.length; i++) {
                 if (amount === 0) {
@@ -121,7 +119,8 @@ document.addEventListener("DOMContentLoaded", () => {
         plusMain.addEventListener("click", () => {
             const amount = plusAmount(minusMain, amountMain);
             const price = "£" + Number(priceMain * amount).toFixed(2);
-    
+            totalPrice = Number(totalPrice) + Number(priceMain * amount).toFixed(2);
+
             if (amount === 1) {
                 arrayOfItems.push({
                     name: "Discovery Package",
@@ -158,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
         minusRefill.addEventListener("click", () => {
             const amount = minusAmount(minusRefill, amountRefill);
             const price = "£" + Number(priceRefill * amount).toFixed(2);
+            totalPrice = Number(totalPrice) - Number(priceRefill * amount).toFixed(2);
 
             for (let i = 0; i < arrayOfItems.length; i++) {
                 if (amount === 0) {
@@ -178,7 +178,8 @@ document.addEventListener("DOMContentLoaded", () => {
         plusRefill.addEventListener("click", () => {
             const amount = plusAmount(minusRefill, amountRefill);
             const price = "£" + Number(priceRefill * amount).toFixed(2);
-    
+            totalPrice = Number(totalPrice) + Number(priceRefill * amount).toFixed(2);
+
             if (amount === 1) {
                 arrayOfItems.push({
                     name: nameRefill.innerHTML,
