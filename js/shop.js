@@ -166,16 +166,15 @@ document.addEventListener("DOMContentLoaded", () => {
             const amount = plusAmount(minusRefill, amountRefill);
             const price = "£" + Number(priceRefill * amount).toFixed(2);
     
-            for (let i = 0; i < arrayOfItems.length; i++) {
-                console.log(amount);
-                if (amount === 1) {
-                    arrayOfItems.push({
-                        name: nameRefill.innerHTML,
-                        amount: amount,
-                        price: price
-                    });
-                    console.log(nameRefill.innerHTML)
-                } else {
+            if (amount === 1) {
+                arrayOfItems.push({
+                    name: nameRefill.innerHTML,
+                    amount: amount,
+                    price: price
+                });
+                console.log(nameRefill.innerHTML)
+            } else {
+                for (let i = 0; i < arrayOfItems.length; i++) {
                     arrayOfItems[i].amount = amount;
                     arrayOfItems[i].price = price;  
                 };
