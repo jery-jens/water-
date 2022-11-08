@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let totalPrice = 0;
 
     const updateList = (items) => {
-        arrayOfItems.forEach((item) => {
+        document.querySelectorAll(".list-item").forEach((item) => {
             item.remove();
         });
 
@@ -160,8 +160,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 };
             };
-
-            console.log(arrayOfItems);
         });
 
         plusRefill.addEventListener("click", () => {
@@ -174,7 +172,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     amount: amount,
                     price: price
                 });
-                console.log(nameRefill.innerHTML)
             } else {
                 for (let i = 0; i < arrayOfItems.length; i++) {
                     if (arrayOfItems[i].name === nameRefill.innerHTML) {
@@ -183,8 +180,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     };
                 };
             };
-
-            console.log(arrayOfItems);
         });
     });
 });
