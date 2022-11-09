@@ -13,8 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.amount_minutes.value = 8;
     elements.amount_people.value = 2;
 
-    calculateSavings();
-
     // Convert to thousands seperator
     const formatNumber = (x, fixed) => {
         return x.toFixed(fixed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
@@ -45,6 +43,8 @@ document.addEventListener("DOMContentLoaded", () => {
         elements.saved_water.innerHTML = formatNumber(savingShowerLiterYear * (elements.amount_people.value), 0) + "L";
         elements.saved_money.innerHTML = "£" + formatNumber((savingShowerMoneyYear * (elements.amount_people.value)), 0);
     };
+
+    calculateSavings();
 
     // Change on every input change
     elements.amount_people.addEventListener("input", () => calculateSavings());
