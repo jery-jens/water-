@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
     elements.amount_minutes.value = 8;
     elements.amount_people.value = 2;
 
+    calculateSavings();
+
     // Convert to thousands seperator
     const formatNumber = (x, fixed) => {
         return x.toFixed(fixed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
