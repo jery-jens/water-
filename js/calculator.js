@@ -7,6 +7,12 @@ document.addEventListener("DOMContentLoaded", () => {
         saved_money: document.getElementById("money"),
     };
 
+    // Set defaults
+    elements.amount_minutes.setAttribute("min", 1);
+    elements.amount_people.setAttribute("min", 1);
+    elements.amount_minutes.value = 8;
+    elements.amount_people.value = 2;
+
     // Convert to thousands seperator
     const formatNumber = (x, fixed) => {
         return x.toFixed(fixed).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
