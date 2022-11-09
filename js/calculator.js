@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const savingShowerLiter = showerL * 0.3;
         const savingShowerLiterYear = savingShowerLiter * 365;
 
-        elements.saved_water.innerHTML = formatNumber(savingShowerLiterYear, 0) + "L";
+        elements.saved_water.innerHTML = formatNumber(savingShowerLiterYear * (elements.amount_people.value), 0) + "L";
         elements.saved_money.innerHTML = "£" + formatNumber((savingShowerMoneyYear * (elements.amount_people.value)), 0);
     };
 
