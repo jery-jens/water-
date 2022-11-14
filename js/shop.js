@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
         mainImage: document.getElementById("main-image"),
         thumbnails: document.querySelectorAll(".thumbnail"),
     };
-    
+
     elements.thumbnails.forEach((thumbnail) => {
         thumbnail.addEventListener("click", () => {
             elements.mainImage.src = thumbnail.src;
@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mainWrapper.appendChild(listItemWrapper);
         });
 
-        finalPrice.innerHTML = `£${price.toFixed(2)}`;
+        finalPrice.innerHTML = `Â£${price.toFixed(2)}`;
     };
 
     /**
@@ -59,9 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
      */
 
     const minusAmount = (minus, amount) => {
-        if (Number(amount.innerHTML) !== 0) {
-            const updatedAmount = Number(amount.innerHTML) - 1;
-            amount.innerHTML = updatedAmount;
+        if (Number(amount.value) !== 0) {
+            const updatedAmount = Number(amount.value) - 1;
+            amount.value = updatedAmount;
 
             if (updatedAmount === 0) {
                 minus.classList.add("inactive");
@@ -74,8 +74,8 @@ document.addEventListener("DOMContentLoaded", () => {
     };
 
     const plusAmount = (minus, amount) => {
-        const updatedAmount = Number(amount.innerHTML) + 1;
-        amount.innerHTML = updatedAmount;
+        const updatedAmount = Number(amount.value) + 1;
+        amount.value = updatedAmount;
 
         if (updatedAmount !== 0) {
             minus.classList.remove("inactive");
@@ -92,14 +92,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const minusMain = document.getElementById("minus-main") ?? null;
     const plusMain = document.getElementById("plus-main") ?? null;
     const amountMain = document.getElementById("amount-main") ?? null;
-    const priceMain = 89;
+    const priceMain = 99;
+
+    if (amountMain) {
+        amountMain.setAttribute("value", 1);
+    };
 
     if (minusMain || plusMain || amountMain) {
         minusMain.addEventListener("click", () => {
             const amount = minusAmount(minusMain, amountMain);
-            const price = "£" + Number(priceMain * amount).toFixed(2);
+            const price = "Â£" + Number(priceMain * amount).toFixed(2);
             totalPrice = Number(Number(totalPrice) - Number(priceMain * amount)).toFixed(2);
-    
+
             for (let i = 0; i < arrayOfItems.length; i++) {
                 if (amount === 0) {
                     if (arrayOfItems[i].name === "Discovery Package") {
@@ -116,15 +120,15 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
             };
-    
+
             updateList(arrayOfItems, finalTotalPrice);
         });
-    
+
         plusMain.addEventListener("click", () => {
             const amount = plusAmount(minusMain, amountMain);
-            const price = "£" + Number(priceMain * amount).toFixed(2);
+            const price = "Â£" + Number(priceMain * amount).toFixed(2);
             totalPrice = Number(Number(totalPrice) + Number(priceMain * amount)).toFixed(2);
 
             if (amount === 1) {
@@ -145,9 +149,9 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
             };
-    
+
             updateList(arrayOfItems, finalTotalPrice);
         });
     };
@@ -164,11 +168,11 @@ document.addEventListener("DOMContentLoaded", () => {
         const minusRefill = refill.querySelector(".minus-refill");
         const plusRefill = refill.querySelector(".plus-refill");
         const amountRefill = refill.querySelector(".amount-refill");
-        const priceRefill = 5;
+        const priceRefill = 9.99;
 
         minusRefill.addEventListener("click", () => {
             const amount = minusAmount(minusRefill, amountRefill);
-            const price = "£" + Number(priceRefill * amount).toFixed(2);
+            const price = "Â£" + Number(priceRefill * amount).toFixed(2);
             totalPrice = Number(Number(totalPrice) - Number(priceRefill * amount)).toFixed(2);
 
             for (let i = 0; i < arrayOfItems.length; i++) {
@@ -187,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
@@ -195,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         plusRefill.addEventListener("click", () => {
             const amount = plusAmount(minusRefill, amountRefill);
-            const price = "£" + Number(priceRefill * amount).toFixed(2);
+            const price = "Â£" + Number(priceRefill * amount).toFixed(2);
 
             if (amount === 1) {
                 arrayOfItems.push({
@@ -215,7 +219,78 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+            };
+
+            updateList(arrayOfItems, finalTotalPrice);
+        });
+    });
+
+
+    /**
+     * Cartridge - amount selector
+     */
+
+    // Elements
+    const cartridgeBoxes = document.querySelectorAll(".cartridge-box");
+
+    cartridgeBoxes.forEach((cartridge) => {
+        const nameCartridge = cartridge.querySelector(".name-cartridge");
+        const minusCartridge = cartridge.querySelector(".minus-cartridge");
+        const plusCartridge = cartridge.querySelector(".plus-cartridge");
+        const amountCartridge = cartridge.querySelector(".amount-cartridge");
+        const priceCartridge = 24.99;
+
+        minusCartridge.addEventListener("click", () => {
+            const amount = minusAmount(minusCartridge, amountCartridge);
+            const price = "Â£" + Number(priceCartridge * amount).toFixed(2);
+            totalPrice = Number(Number(totalPrice) - Number(priceCartridge * amount)).toFixed(2);
+
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                if (amount === 0) {
+                    if (arrayOfItems[i].name === nameCartridge.innerHTML) {
+                        arrayOfItems.splice(i, 1);
+                    };
+                } else {
+                    if (arrayOfItems[i].name === nameCartridge.innerHTML) {
+                        arrayOfItems[i].amount = amount;
+                        arrayOfItems[i].price = price;
+                    };
+                };
+            };
+
+            let finalTotalPrice = 0;
+
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+            };
+
+            updateList(arrayOfItems, finalTotalPrice);
+        });
+
+        plusCartridge.addEventListener("click", () => {
+            const amount = plusAmount(minusCartridge, amountCartridge);
+            const price = "Â£" + Number(priceCartridge * amount).toFixed(2);
+
+            if (amount === 1) {
+                arrayOfItems.push({
+                    name: nameCartridge.innerHTML,
+                    amount: amount,
+                    price: price
+                });
+            } else {
+                for (let i = 0; i < arrayOfItems.length; i++) {
+                    if (arrayOfItems[i].name === nameCartridge.innerHTML) {
+                        arrayOfItems[i].amount = amount;
+                        arrayOfItems[i].price = price;
+                    };
+                };
+            };
+
+            let finalTotalPrice = 0;
+
+            for (let i = 0; i < arrayOfItems.length; i++) {
+                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
