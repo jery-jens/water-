@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
         arrayOfItems.push({
             name: "Discovery Package",
             amount: 1,
-            price: priceMain,
+            price: "£" + Number(priceMain).toFixed(2),
         });
 
         let finalTotalPrice = 0;
