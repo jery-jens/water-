@@ -96,13 +96,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (amountMain) {
         amountMain.setAttribute("value", 1);
-    };
 
-    arrayOfItems.push({
-        name: "Discovery Package",
-        amount: 1,
-        price: priceMain,
-    });
+        arrayOfItems.push({
+            name: "Discovery Package",
+            amount: 1,
+            price: priceMain,
+        });
+
+        let finalTotalPrice = 0;
+    
+        for (let i = 0; i < arrayOfItems.length; i++) {
+            finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
+        };
+    
+        updateList(arrayOfItems, finalTotalPrice);
+    };
 
     if (minusMain || plusMain || amountMain) {
         minusMain.addEventListener("click", () => {
