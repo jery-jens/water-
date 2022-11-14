@@ -51,7 +51,7 @@ document.addEventListener("DOMContentLoaded", () => {
             mainWrapper.appendChild(listItemWrapper);
         });
 
-        finalPrice.innerHTML = `Â£${price.toFixed(2)}`;
+        finalPrice.innerHTML = `£${price.toFixed(2)}`;
     };
 
     /**
@@ -101,7 +101,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (minusMain || plusMain || amountMain) {
         minusMain.addEventListener("click", () => {
             const amount = minusAmount(minusMain, amountMain);
-            const price = "Â£" + Number(priceMain * amount).toFixed(2);
+            const price = "£" + Number(priceMain * amount).toFixed(2);
             totalPrice = Number(Number(totalPrice) - Number(priceMain * amount)).toFixed(2);
 
             for (let i = 0; i < arrayOfItems.length; i++) {
@@ -120,7 +120,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
@@ -128,7 +128,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         plusMain.addEventListener("click", () => {
             const amount = plusAmount(minusMain, amountMain);
-            const price = "Â£" + Number(priceMain * amount).toFixed(2);
+            const price = "£" + Number(priceMain * amount).toFixed(2);
             totalPrice = Number(Number(totalPrice) + Number(priceMain * amount)).toFixed(2);
 
             if (amount === 1) {
@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
@@ -172,7 +172,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         minusRefill.addEventListener("click", () => {
             const amount = minusAmount(minusRefill, amountRefill);
-            const price = "Â£" + Number(priceRefill * amount).toFixed(2);
+            const price = "£" + Number(priceRefill * amount).toFixed(2);
             totalPrice = Number(Number(totalPrice) - Number(priceRefill * amount)).toFixed(2);
 
             for (let i = 0; i < arrayOfItems.length; i++) {
@@ -191,7 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
@@ -199,7 +199,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         plusRefill.addEventListener("click", () => {
             const amount = plusAmount(minusRefill, amountRefill);
-            const price = "Â£" + Number(priceRefill * amount).toFixed(2);
+            const price = "£" + Number(priceRefill * amount).toFixed(2);
 
             if (amount === 1) {
                 arrayOfItems.push({
@@ -219,7 +219,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
@@ -243,7 +243,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         minusCartridge.addEventListener("click", () => {
             const amount = minusAmount(minusCartridge, amountCartridge);
-            const price = "Â£" + Number(priceCartridge * amount).toFixed(2);
+            const price = "£" + Number(priceCartridge * amount).toFixed(2);
             totalPrice = Number(Number(totalPrice) - Number(priceCartridge * amount)).toFixed(2);
 
             for (let i = 0; i < arrayOfItems.length; i++) {
@@ -262,7 +262,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         plusCartridge.addEventListener("click", () => {
             const amount = plusAmount(minusCartridge, amountCartridge);
-            const price = "Â£" + Number(priceCartridge * amount).toFixed(2);
+            const price = "£" + Number(priceCartridge * amount).toFixed(2);
 
             if (amount === 1) {
                 arrayOfItems.push({
@@ -290,7 +290,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let finalTotalPrice = 0;
 
             for (let i = 0; i < arrayOfItems.length; i++) {
-                finalTotalPrice = Number(arrayOfItems[i].price.split("Â£")[1]) + finalTotalPrice;
+                finalTotalPrice = Number(arrayOfItems[i].price.split("£")[1]) + finalTotalPrice;
             };
 
             updateList(arrayOfItems, finalTotalPrice);
