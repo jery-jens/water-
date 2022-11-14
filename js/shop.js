@@ -98,6 +98,12 @@ document.addEventListener("DOMContentLoaded", () => {
         amountMain.setAttribute("value", 1);
     };
 
+    arrayOfItems.push({
+        name: "Discovery Package",
+        amount: 1,
+        price: priceMain,
+    });
+
     if (minusMain || plusMain || amountMain) {
         minusMain.addEventListener("click", () => {
             const amount = minusAmount(minusMain, amountMain);
