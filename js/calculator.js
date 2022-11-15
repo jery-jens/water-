@@ -10,7 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Set defaults
     elements.amount_minutes.setAttribute("min", 1);
     elements.amount_people.setAttribute("min", 1);
-    elements.amount_minutes.value = 8;
+    elements.amount_minutes.value = 7;
     elements.amount_people.value = 2;
 
     // Convert to thousands seperator
@@ -20,7 +20,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Calculate savings
     const calculateSavings = () => {
-        const flowRate = 9;
+        const flowRate = 7.5;
         const showerL = elements.amount_minutes.value * flowRate;
 
         const waterCost = 4;
