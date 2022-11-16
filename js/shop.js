@@ -253,7 +253,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const minusCartridge = cartridge.querySelector(".minus-cartridge");
         const plusCartridge = cartridge.querySelector(".plus-cartridge");
         const amountCartridge = cartridge.querySelector(".amount-cartridge");
-        const priceCartridge = 24.99;
+        const priceCartridge = 29.99;
 
         minusCartridge.addEventListener("click", () => {
             const amount = minusAmount(minusCartridge, amountCartridge);
